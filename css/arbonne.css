@@ -1,0 +1,10 @@
+.body {
+    margin-left:auto;
+    margin-right:auto;
+    width:1000px;
+    font-size: 14px;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
+.logo {
+    text-align:center;
+}

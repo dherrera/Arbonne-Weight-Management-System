@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="UserCtrl">
+<head>
+    <title>Arbonne Management</title>
+<script src="./bower_components/angular/angular.min.js" lang="javascript"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js" lang="javascript"></script>
+<script src="./bower_components/jquery/jquery.min.js" lang="javascript"></script>
+<script src="./bower_components/fullcalendar/fullcalendar.min.js" lang="javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/arbonne.css">
+<link rel="stylesheet" type="text/css" href="./bower_components/fullcalendar/fullcalendar.css">
+<link rel="stylesheet" type="text/css" href="./bower_components/fullcalendar/fullcalendar.print.css">
+<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+</head>
+<body style="">
+<div class="logo">
+    <img src="img/arbonnevectorlogo_large.png" width="200px" height="200px">
+</div>
+<div class="container">
+<div class="header">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">Arbonne</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="diet.html"><span class="glyphicon glyphicon-cutlery"></span>&nbsp;My Diet</a></li>
+            <li><a href="#">My Products</a></li>
+        </ul>
+    </div>
+    <br>
+    <div id='calendar'></div>
+</nav>
+</div>
+</div>
+</body>
+<script>
+
+    $(document).ready(function() {
+
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,basicWeek,basicDay'
+            },
+            editable: true,
+            events: [
+                {
+                    title: 'All Day Event',
+                    start: new Date(y, m, 1)
+                },
+                {
+                    title: 'Long Event',
+                    start: new Date(y, m, d-5),
+                    end: new Date(y, m, d-2)
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d-3, 16, 0),
+                    allDay: false
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d+4, 16, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Meeting',
+                    start: new Date(y, m, d, 10, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Birthday Party',
+                    start: new Date(y, m, d+1, 19, 0),
+                    end: new Date(y, m, d+1, 22, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Click for Google',
+                    start: new Date(y, m, 28),
+                    end: new Date(y, m, 29),
+                    url: 'http://google.com/'
+                }
+            ]
+        });
+
+    });
+
+</script>
+</html>
